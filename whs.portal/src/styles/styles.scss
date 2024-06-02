@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$whs-primary: mat.m2-define-palette(mat.$m2-teal-palette, 700);
+$whs-accent: mat.m2-define-palette(mat.$m2-teal-palette, 200);
+$whs-tertiary: mat.m2-define-palette(mat.$m2-teal-palette, 50);
+
+$whs-warn: mat.m2-define-palette(mat.$m2-red-palette, A400);
+$whs-error: mat.m2-define-palette(mat.$m2-red-palette, A400);
+
+$whs-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $whs-primary,
+    accent: $whs-accent,
+    tertiary: $whs-tertiary,
+    warn: $whs-warn,
+    error: $whs-error
+  )
+));
+
+@include mat.all-component-themes($whs-theme);
+@include mat.form-field-density(-5);
+@include mat.icon-button-density(-5);
+@include mat.datepicker-density(-5);
+
+@import "global.scss";
+@import "flex-utils.scss";
+
+html, body { 
+    height: 100%; 
+    background-color: #263238;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
