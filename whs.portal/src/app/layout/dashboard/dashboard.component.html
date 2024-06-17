@@ -6,7 +6,7 @@
         <h1 class="title">Work health and security</h1>
     </mat-toolbar>
 
-    <mat-sidenav-container fullscreen  class="main-container">
+    <mat-sidenav-container fullscreen class="main-container">
         <mat-sidenav #menu class="menu" [mode]="'over'">
             <mat-list>
                 <mat-list *ngFor="let navItem of navItems">
@@ -16,7 +16,16 @@
         </mat-sidenav>
 
         <mat-sidenav-content>
+            <mat-sidenav-container fullscreen class="main-content">
+                <mat-sidenav class="side-content" mode=over position="end" autosize style="min-width: 500px;" sidePanelInstance>
+                    <ng-container sidePanelContent></ng-container>
+                </mat-sidenav>
 
+                <mat-sidenav-content>
+                    <router-outlet></router-outlet>
+                </mat-sidenav-content>
+
+            </mat-sidenav-container>
         </mat-sidenav-content>
 
     </mat-sidenav-container>

@@ -1,5 +1,5 @@
 <div class="d-flex-row">
-    <div class="d-flex-row align-items-center">
+    <div class="d-flex-row align-items-center cursor-pointer" (click)="navigateToNavItemUrl()">
         <img class="ms-10" *ngIf="navItem.iconName" src="assets/icons/{{ navItem.iconName }}">
         <span class="ms-10">{{ navItem.description }}</span>
     </div>

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
+@use "theme.variable.scss" as thm;
 
 @include mat.core();
 
@@ -10,7 +11,7 @@ $whs-tertiary: mat.m2-define-palette(mat.$m2-teal-palette, 50);
 $whs-warn: mat.m2-define-palette(mat.$m2-red-palette, A400);
 $whs-error: mat.m2-define-palette(mat.$m2-red-palette, A400);
 
-$whs-theme: mat.m2-define-dark-theme((
+$whs-dark-theme: mat.m2-define-dark-theme((
   color: (
     primary: $whs-primary,
     accent: $whs-accent,
@@ -20,18 +21,34 @@ $whs-theme: mat.m2-define-dark-theme((
   )
 ));
 
-@include mat.all-component-themes($whs-theme);
-@include mat.form-field-density(-5);
-@include mat.icon-button-density(-5);
-@include mat.datepicker-density(-5);
+$whs-light-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $whs-primary,
+    accent: $whs-accent,
+    tertiary: $whs-tertiary,
+    warn: $whs-warn,
+    error: $whs-error
+  )
+));
+
 
 @import "global.scss";
 @import "flex-utils.scss";
 
+@include mat.all-component-themes($whs-dark-theme);
+
 html, body { 
     height: 100%; 
     background-color: #263238;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.side-content {
+  min-width: 500px;
+  background-color: thm.$tertiary !important;
+  color: thm.$primary !important;
+  padding: 15px;
+  @include mat.all-component-colors($whs-light-theme);
+}

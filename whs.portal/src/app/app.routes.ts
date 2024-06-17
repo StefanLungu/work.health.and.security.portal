@@ -6,6 +6,12 @@ export const routes: Routes =
 [
     {
         path: RoutesDefinitionHelper.ROUTENAME_EMPTY,
-        component: WHSDashboardComponent
+        component: WHSDashboardComponent,
+        children: [
+            {
+                path: RoutesDefinitionHelper.ROUTENAME_MANAGEMENT,
+                loadComponent: () => import("@modules/management/management.component").then(m => m.ManagementComponent)
+            }
+        ]
     }
 ];
