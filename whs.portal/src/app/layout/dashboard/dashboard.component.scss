@@ -1,0 +1,31 @@
+@use "src/styles/theme.variable.scss" as thm;
+
+$header-height: 65px;
+$footer-height: 45px;
+
+.header {
+    position: absolute;
+    top: 0;
+    height: $header-height;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: $footer-height;
+}
+
+.title {
+    margin: auto;
+    font-size: 24px;
+}
+
+.menu {
+    min-width: 320px;
+    background-color: thm.$tertiary;
+}
+
+.main-container {
+    margin-top: $header-height;
+    margin-bottom: $footer-height;
+}

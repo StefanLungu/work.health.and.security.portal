@@ -1,0 +1,10 @@
+<div class="d-flex-row">
+    <div class="d-flex-row align-items-center">
+        <img class="ms-10" *ngIf="navItem.iconName" src="assets/icons/{{ navItem.iconName }}">
+        <span class="ms-10">{{ navItem.description }}</span>
+    </div>
+
+    <button mat-icon-button *ngIf="navItem.children">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>

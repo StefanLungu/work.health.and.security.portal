@@ -1,0 +1,26 @@
+<main>
+    <mat-toolbar class="header d-flex-row" color="primary">
+        <button mat-icon-button (click)="menu.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="title">Work health and security</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container fullscreen  class="main-container">
+        <mat-sidenav #menu class="menu" [mode]="'over'">
+            <mat-list>
+                <mat-list *ngFor="let navItem of navItems">
+                    <whs-nav-item [navItem]="navItem"></whs-nav-item>
+                </mat-list>
+            </mat-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+    <mat-toolbar class="footer" color="accent">
+    </mat-toolbar>
+</main>
