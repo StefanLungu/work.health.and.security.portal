@@ -6,8 +6,27 @@
             <input matInput>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" class="mt-10" (click)="openAddDepartmentForm()"> <mat-icon>add</mat-icon> Add department</button>
-
+        <button mat-raised-button color="primary" class="mt-10" (click)="openAddDepartmentForm()">
+            <mat-icon>add</mat-icon> Add department</button>
     </div>
+
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-tree-node *matTreeNodeDef="let departmentNode" matTreeNodePadding class="d-flex-row justify-content-space-between">
+            <div class="node-label d-flex-row justify-content-start align-items-center">
+                <button mat-icon-button matTreeNodeToggle>
+                    <mat-icon>{{ treeControl.isExpanded(departmentNode) ? 'expand_more' : 'chevron_right' }}</mat-icon>
+                </button>
+                {{ departmentNode.label }}
+            </div>
+            <div class="w-25">
+                <mat-progress-bar *ngIf="departmentNode.isLoading" mode="indeterminate"></mat-progress-bar>
+            </div>
+            <div>
+                <button mat-icon-button matTreeNodeToggle (click)="openAddDepartmentForm(departmentNode)">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </mat-tree-node>
+    </mat-tree>
 
 </div>
